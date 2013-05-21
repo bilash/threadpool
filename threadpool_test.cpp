@@ -2,10 +2,6 @@
 
 #include <iostream>
 
-// --------
-//#include "mem_manager.h"    // must be the final #include header
-// --------
-
 using namespace std;
 
 const int MAX_TASKS = 4;
