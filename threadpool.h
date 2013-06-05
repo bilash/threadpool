@@ -54,7 +54,7 @@ public:
   ~CondVar() { pthread_cond_destroy(&m_cond_var); }
   void wait(pthread_mutex_t* mutex) {pthread_cond_wait(&m_cond_var, mutex); }
   void signal() { pthread_cond_signal(&m_cond_var); }
-  void broadcast() { pthread_cond_signal(&m_cond_var); }
+  void broadcast() { pthread_cond_broadcast(&m_cond_var); }
 private:
   pthread_cond_t m_cond_var;
 };
