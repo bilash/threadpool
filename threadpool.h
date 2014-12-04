@@ -23,9 +23,8 @@ public:
   }
   ~Mutex()
   {
-    if (is_locked) {
-      unlock(); // FIXME: is this correct? Can a thread unlock a mutex locked by another thread?
-    }
+    while(is_locked);
+    unlock(); // Unlock Mutex after shared resource is safe
     pthread_mutex_destroy(&m_lock);
   }
   void lock()
