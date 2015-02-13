@@ -14,6 +14,9 @@ Task::~Task()
 void Task::operator()()
 {
   (*m_fn_ptr)(m_arg);
+  if (m_arg != NULL) {
+    delete m_arg;
+  }
 }
 
 void Task::run()
@@ -131,6 +134,7 @@ void* ThreadPool::execute_thread()
     // execute the task
     (*task)(); // could also do task->run(arg);
     //cout << "Done executing thread " << pthread_self() << endl;
+    delete task;
   }
   return NULL;
 }
