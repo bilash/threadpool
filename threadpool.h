@@ -2,7 +2,7 @@
 #define _H_THREADPOOL
 
 #include <pthread.h>
-
+#include <unistd.h>
 #include <deque>
 #include <iostream>
 #include <vector>
