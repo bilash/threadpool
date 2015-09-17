@@ -1,28 +1,4 @@
-#include "threadpool.h"
-
-#include <errno.h>
-#include <string.h>
-
-Task::Task(void (*fn_ptr)(void*), void* arg) : m_fn_ptr(fn_ptr), m_arg(arg)
-{
-}
-
-Task::~Task()
-{
-}
-
-void Task::operator()()
-{
-  (*m_fn_ptr)(m_arg);
-  if (m_arg != NULL) {
-    delete m_arg;
-  }
-}
-
-void Task::run()
-{
-  (*m_fn_ptr)(m_arg);
-}
+#include "ThreadPool.h"
 
 ThreadPool::ThreadPool() : m_pool_size(DEFAULT_POOL_SIZE)
 {
